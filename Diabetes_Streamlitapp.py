@@ -14,7 +14,7 @@ st.write(f"Model {accuracy}")
 
 st.header("Real_Time Prediction")
 
-test_data = pd.read_csv('diabetes(1).csv')
+test_data = pd.read_csv('diabetes.csv')
 
 x_test = test_data.iloc[:, :-1]
 y_test = test_data.iloc[:, -1]
