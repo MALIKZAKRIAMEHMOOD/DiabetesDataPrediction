@@ -7,9 +7,8 @@ model = joblib.load('K-Nearest Neighborsmodel.pkl')
 #Load the test data
 test_data = pd.read_csv('diabetes.csv')
 
-#Assuming the last column in the target
-x_test = test_data.iloc[:, :-1]
-y_test = test_data.iloc[:, -1]
+x_test = test_data.drop(columns='Outcome')
+y_test = test_data['Outcome']
 
 #Generate Test Predictions
 y_pred = model.predict(x_test)
