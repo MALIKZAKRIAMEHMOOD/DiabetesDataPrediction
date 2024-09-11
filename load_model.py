@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score
 model = joblib.load('K-Nearest Neighborsmodel.pkl')
 
 #Load the test data
-test_data = pd.read_csv('diabetes(1).csv')
+test_data = pd.read_csv('diabetes.csv')
 
 #Assuming the last column in the target
 x_test = test_data.iloc[:, :-1]
