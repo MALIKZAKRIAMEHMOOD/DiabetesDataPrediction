@@ -28,6 +28,16 @@ input_df = pd.DataFrame([input_data], columns = x_test.columns)
 
 if st.button("Predict"):
   prediction = model.predict(input_df)
+st.write(f"Accuracy variable content: {accuracy}")
 
-st.header("Accuracy Plot")
-st.bar_chart([int(accuracy.split(': ')[1])])
+if isinstance(accuracy, (int, float)):
+    st.bar_chart([accuracy])
+elif ': ' in accuracy:
+    try:
+        accuracy_value = float(accuracy.split(': ')[1])
+        st.bar_chart([accuracy_value])
+    except (ValueError, IndexError):
+        st.write("Error parsing the accuracy value.")
+else:
+    st.write("Accuracy value is not in the expected format.")
+
