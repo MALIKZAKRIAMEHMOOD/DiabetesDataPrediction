@@ -16,8 +16,8 @@ st.header("Real_Time Prediction")
 
 test_data = pd.read_csv('diabetes.csv')
 
-x_test = test_data.iloc[:, :-1]
-y_test = test_data.iloc[:, -1]
+x_test = test_data.drop(columns='Outcome')
+y_test = test_data['Outcome']
 
 input_data = []
 for col in x_test.columns:
